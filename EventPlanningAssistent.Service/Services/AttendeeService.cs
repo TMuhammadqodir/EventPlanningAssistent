@@ -2,10 +2,8 @@
 using EventPlanningAssistent.Data.IRepositories.Commons;
 using EventPlanningAssistent.Data.Repositories.Commons;
 using EventPlanningAssistent.Domain.Entities.Attendees;
-using EventPlanningAssistent.Domain.Entities.Events;
 using EventPlanningAssistent.Domain.Entities.Tasks;
 using EventPlanningAssistent.Service.DTOs.Attendees;
-using EventPlanningAssistent.Service.DTOs.Tasks;
 using EventPlanningAssistent.Service.Helpers;
 using EventPlanningAssistent.Service.IServices;
 using EventPlanningAssistent.Service.Mappers;

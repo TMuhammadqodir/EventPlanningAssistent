@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
 using EventPlanningAssistent.Data.IRepositories.Commons;
 using EventPlanningAssistent.Data.Repositories.Commons;
-using EventPlanningAssistent.Domain.Entities.Events;
 using EventPlanningAssistent.Domain.Entities.Ventors;
-using EventPlanningAssistent.Service.DTOs.Events;
 using EventPlanningAssistent.Service.DTOs.Ventors;
 using EventPlanningAssistent.Service.Helpers;
 using EventPlanningAssistent.Service.IServices;
