@@ -1,6 +1,9 @@
 ﻿using AutoMapper;
 using EventPlanningAssistent.Data.IRepositories.Commons;
 using EventPlanningAssistent.Data.Repositories.Commons;
+using EventPlanningAssistent.Domain.Entities.Events;
+using EventPlanningAssistent.Domain.Entities.EventVentors;
+using EventPlanningAssistent.Domain.Entities.Ventors;
 using EventPlanningAssistent.Service.DTOs.EventVentors;
 using EventPlanningAssistent.Service.Helpers;
 using EventPlanningAssistent.Service.IServices;
@@ -22,28 +25,127 @@ public class EventVentorService : IEventVentorServise
             cfg => cfg.AddProfile<MappingProfile>()));
     }
 
-    public Task<Responce<EventVentorResultDTO>> CreateAsync(EventVentorCreationDTO dto)
+    public async Task<Responce<EventVentorResultDTO>> CreateAsync(EventVentorCreationDTO dto)
     {
-        throw new NotImplementedException();
+        EventEntity existEvent = await unitOfWork.events.GetByIdAsync(dto.EventId);
+
+        if (existEvent is null)
+            return new Responce<EventVentorResultDTO>
+            {
+                StatusCode = 404,
+                Message = "This EventId was not found",
+            };
+
+        VentorEntity existVentor = await unitOfWork.ventors.GetByIdAsync(dto.VentorId);
+
+        if (existVentor is null)
+            return new Responce<EventVentorResultDTO>
+            {
+                StatusCode = 404,
+                Message = "This VentorId was not found",
+            };
+
+        EventVentorEntity entity = mapper.Map<EventVentorEntity>(dto);
+
+        await unitOfWork.eventVentors.CreateAsync(entity);
+        await unitOfWork.SaveAsync();
+
+        EventVentorResultDTO EventVentorResult = mapper.Map<EventVentorResultDTO>(dto);
+
+        return new Responce<EventVentorResultDTO>
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Result = EventVentorResult
+        };
     }
 
-    public Task<Responce<bool>> DeleteAsync(long id)
+    public async Task<Responce<bool>> DeleteAsync(long id)
     {
-        throw new NotImplementedException();
+        EventVentorEntity existEventVentor = await unitOfWork.eventVentors.GetByIdAsync(id);
+
+        if (existEventVentor is null)
+            return new Responce<bool>
+            {
+                StatusCode = 404,
+                Message = "This EventVentor was not found",
+                Result = false
+            };
+
+        unitOfWork.eventVentors.Delete(existEventVentor);
+        await unitOfWork.SaveAsync();
+
+        return new Responce<bool>
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Result = true
+        };
     }
 
-    public Task<Responce<IEnumerable<EventVentorResultDTO>>> GetAllAysnc()
+    public async Task<Responce<EventVentorResultDTO>> UpdateAsync(EventVentorUpdateDTO dto)
     {
-        throw new NotImplementedException();
+        EventVentorEntity existEventVentor = await unitOfWork.eventVentors.GetByIdAsync(dto.Id);
+
+        if (existEventVentor is null)
+            return new Responce<EventVentorResultDTO>
+            {
+                StatusCode = 404,
+                Message = "This EventVentor was not found",
+            };
+
+        var EventVentorUpdate = mapper.Map(dto, existEventVentor);
+
+        unitOfWork.eventVentors.Update(EventVentorUpdate);
+        await unitOfWork.SaveAsync();
+
+        var resultEventVentor = mapper.Map<EventVentorResultDTO>(EventVentorUpdate);
+
+        return new Responce<EventVentorResultDTO>
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Result = resultEventVentor
+        };
     }
 
-    public Task<Responce<EventVentorResultDTO>> GetByIdAsync(long id)
+    public async Task<Responce<IEnumerable<EventVentorResultDTO>>> GetAllAysnc()
     {
-        throw new NotImplementedException();
+        var EventVentors = unitOfWork.eventVentors.GetAll();
+
+        var resultEventVentors = new List<EventVentorResultDTO>();
+
+        foreach (EventVentorEntity entity in EventVentors)
+        {
+            resultEventVentors.Add(mapper.Map<EventVentorResultDTO>(entity));
+        }
+
+        return new Responce<IEnumerable<EventVentorResultDTO>>
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Result = resultEventVentors
+        };
     }
 
-    public Task<Responce<EventVentorResultDTO>> UpdateAsync(EventVentorUpdateDTO dto)
+    public async Task<Responce<EventVentorResultDTO>> GetByIdAsync(long id)
     {
-        throw new NotImplementedException();
+        EventVentorEntity existEventVentor = await unitOfWork.eventVentors.GetByIdAsync(id);
+
+        if (existEventVentor is null)
+            return new Responce<EventVentorResultDTO>
+            {
+                StatusCode = 404,
+                Message = "This EventVentor was not found",
+            };
+
+        var resultEventVentor = mapper.Map<EventVentorResultDTO>(existEventVentor);
+
+        return new Responce<EventVentorResultDTO>
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Result = resultEventVentor
+        };
     }
 }
