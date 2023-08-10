@@ -26,6 +26,16 @@
         "runtime": {
           "lib/netcoreapp2.0/_._": {}
         }
+      },
+      "EventPlanningAssistent.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/EventPlanningAssistent.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EventPlanningAssistent.Domain.dll": {}
+        }
       }
     }
   },
@@ -113,11 +123,17 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "EventPlanningAssistent.Domain/1.0.0": {
+      "type": "project",
+      "path": "../EventPlanningAssistent.Domain/EventPlanningAssistent.Domain.csproj",
+      "msbuildProject": "../EventPlanningAssistent.Domain/EventPlanningAssistent.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "AutoMapper >= 12.0.1"
+      "AutoMapper >= 12.0.1",
+      "EventPlanningAssistent.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -152,7 +168,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Muhammadqodir\\OneDrive\\Documents\\Proects\\EventPlanningAssistent\\EventPlanningAssistent.Domain\\EventPlanningAssistent.Domain.csproj": {
+              "projectPath": "C:\\Users\\Muhammadqodir\\OneDrive\\Documents\\Proects\\EventPlanningAssistent\\EventPlanningAssistent.Domain\\EventPlanningAssistent.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
