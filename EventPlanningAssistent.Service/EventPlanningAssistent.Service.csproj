@@ -8,9 +8,10 @@
 
   <ItemGroup>
     <Folder Include="DTOs\Events\" />
+    <Folder Include="DTOs\Contracts\" />
+    <Folder Include="DTOs\Attendees\" />
     <Folder Include="DTOs\Ventors\" />
     <Folder Include="DTOs\Tasks\" />
-    <Folder Include="DTOs\Resources\" />
   </ItemGroup>
 
   <ItemGroup>
