@@ -5,4 +5,5 @@ namespace EventPlanningAssistent.Data.IRepositories;
 
 public interface IVentorRepository : IRepository<VentorEntity>
 {
+    Task<VentorEntity> GetByTelNumberAsync(string telNumber);
 }
