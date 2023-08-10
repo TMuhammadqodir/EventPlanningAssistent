@@ -10,6 +10,7 @@
     <Folder Include="DTOs\Events\" />
     <Folder Include="DTOs\Contracts\" />
     <Folder Include="DTOs\Attendees\" />
+    <Folder Include="DTOs\EventVentors\" />
     <Folder Include="DTOs\Ventors\" />
     <Folder Include="DTOs\Tasks\" />
   </ItemGroup>
