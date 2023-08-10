@@ -37,6 +37,15 @@ public class AttendeeService : IAttendeeService
                 Message = "This TaskId was not found",
             };
 
+        AttendeeEntity existAttendee = await unitOfWork.attendees.GetByTelNumberAsync(dto.TelNumber);
+
+        if (existAttendee is null)
+            return new Responce<AttendeeResultDTO>
+            {
+                StatusCode = 403,
+                Message = "This Attendee already exists"
+            };
+
         AttendeeEntity entity = mapper.Map<AttendeeEntity>(dto);
 
         await unitOfWork.attendees.CreateAsync(entity);
