@@ -9,4 +9,5 @@ public interface IRepository<T> where T : Auditable
     void Delete(T entity);
     Task<T> GetById(long id);
     IQueryable<T> GetAll();
+    Task<int> SaveAsync();
 }

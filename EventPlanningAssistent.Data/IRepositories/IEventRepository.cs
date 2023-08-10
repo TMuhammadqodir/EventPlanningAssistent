@@ -1,5 +1,8 @@
-﻿namespace EventPlanningAssistent.Data.IRepositories;
+﻿using EventPlanningAssistent.Data.IRepositories.Commons;
+using EventPlanningAssistent.Domain.Entities.Events;
 
-public interface IEventRepository
+namespace EventPlanningAssistent.Data.IRepositories;
+
+public interface IEventRepository : IRepository<EventEntity>
 {
 }

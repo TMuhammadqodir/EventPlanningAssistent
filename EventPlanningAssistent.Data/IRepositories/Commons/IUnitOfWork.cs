@@ -1,5 +1,5 @@
 ﻿namespace EventPlanningAssistent.Data.IRepositories.Commons;
 
-public interface IUnitOfWork
+public interface IUnitOfWork : IDisposable
 {
 }

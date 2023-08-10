@@ -1,5 +1,8 @@
-﻿namespace EventPlanningAssistent.Data.IRepositories;
+﻿using EventPlanningAssistent.Data.IRepositories.Commons;
+using EventPlanningAssistent.Domain.Entities.Tasks;
 
-public interface ITaskRepository
+namespace EventPlanningAssistent.Data.IRepositories;
+
+public interface ITaskRepository : IRepository<TaskEntity>
 {
 }

@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace EventPlanningAssistent.Data.Repositories;
 
-namespace EventPlanningAssistent.Data.Repositories
+public class AttendeeRepository
 {
-    internal class AttendeeRepository
-    {
-    }
 }

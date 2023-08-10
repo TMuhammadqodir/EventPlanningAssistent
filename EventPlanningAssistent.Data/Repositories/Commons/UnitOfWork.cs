@@ -1,5 +1,7 @@
-﻿namespace EventPlanningAssistent.Data.Repositories.Commons;
+﻿using EventPlanningAssistent.Data.IRepositories.Commons;
 
-public class UnitOfWork
+namespace EventPlanningAssistent.Data.Repositories.Commons;
+
+public class UnitOfWork : IUnitOfWork   
 {
 }

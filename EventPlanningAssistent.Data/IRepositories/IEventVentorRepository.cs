@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace EventPlanningAssistent.Data.IRepositories;
 
-namespace EventPlanningAssistent.Data.IRepositories
+public interface IEventVentorRepository
 {
-    internal interface IEventVentorRepository
-    {
-    }
 }

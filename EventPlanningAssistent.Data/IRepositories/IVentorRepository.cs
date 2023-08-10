@@ -1,5 +1,8 @@
-﻿namespace EventPlanningAssistent.Data.IRepositories;
+﻿using EventPlanningAssistent.Data.IRepositories.Commons;
+using EventPlanningAssistent.Domain.Entities.Ventors;
 
-public class IVentorRepository
+namespace EventPlanningAssistent.Data.IRepositories;
+
+public interface IVentorRepository : IRepository<VentorEntity>
 {
 }

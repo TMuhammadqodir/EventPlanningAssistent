@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EventPlanningAssistent.Data.IRepositories.Commons;
+using EventPlanningAssistent.Domain.Entities.Attendees;
 
-namespace EventPlanningAssistent.Data.IRepositories
+namespace EventPlanningAssistent.Data.IRepositories;
+
+public interface IAttendeeRepository : IRepository<AttendeeEntity>
 {
-    internal interface IAttendeeRepository
-    {
-    }
+
 }
