@@ -416,6 +416,16 @@
         "build": {
           "buildTransitive/net6.0/System.Text.Json.targets": {}
         }
+      },
+      "EventPlanningAssistent.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/EventPlanningAssistent.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EventPlanningAssistent.Domain.dll": {}
+        }
       }
     }
   },
@@ -1059,10 +1069,16 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "EventPlanningAssistent.Domain/1.0.0": {
+      "type": "project",
+      "path": "../EventPlanningAssistent.Domain/EventPlanningAssistent.Domain.csproj",
+      "msbuildProject": "../EventPlanningAssistent.Domain/EventPlanningAssistent.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "EventPlanningAssistent.Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 7.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.0",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 7.0.0"
@@ -1100,7 +1116,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Muhammadqodir\\OneDrive\\Documents\\Proects\\EventPlanningAssistent\\EventPlanningAssistent.Domain\\EventPlanningAssistent.Domain.csproj": {
+              "projectPath": "C:\\Users\\Muhammadqodir\\OneDrive\\Documents\\Proects\\EventPlanningAssistent\\EventPlanningAssistent.Domain\\EventPlanningAssistent.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
