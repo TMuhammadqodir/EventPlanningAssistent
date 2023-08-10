@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EventPlanningAssistent.Domain.Commons;
+using EventPlanningAssistent.Domain.Entities.Events;
+using EventPlanningAssistent.Domain.Entities.Ventors;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EventPlanningAssistent.Domain.Entities.EventVentors
+namespace EventPlanningAssistent.Domain.Entities.EventVentors;
+
+[Table("EventVentors")]
+public class EventVentorEntity : Auditable
 {
-    internal class EventVentorEntity
-    {
-    }
+    public long EventId { get; set; }
+    public EventEntity Event { get; set; }
+    public long VentorId { get; set; }  
+    public VentorEntity Ventor { get; set; }
 }
