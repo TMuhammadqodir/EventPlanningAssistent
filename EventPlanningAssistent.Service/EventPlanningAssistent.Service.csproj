@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EventPlanningAssistent.Data\EventPlanningAssistent.Data.csproj" />
     <ProjectReference Include="..\EventPlanningAssistent.Domain\EventPlanningAssistent.Domain.csproj" />
   </ItemGroup>
 

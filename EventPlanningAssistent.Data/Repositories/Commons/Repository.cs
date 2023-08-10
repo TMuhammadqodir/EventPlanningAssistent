@@ -34,7 +34,7 @@ public class Repository<T> : IRepository<T> where T : Auditable
     public IQueryable<T> GetAll()
         => dbSet.AsQueryable();
 
-    public async Task<T> GetById(long id)
+    public async Task<T> GetByIdAsync(long id)
         => await dbSet.FirstOrDefaultAsync(x => x.Id == id);
 
     public async Task<int> SaveAsync()
