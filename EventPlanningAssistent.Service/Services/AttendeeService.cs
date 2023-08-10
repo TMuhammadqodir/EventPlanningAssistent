@@ -1,7 +1,11 @@
 ﻿using AutoMapper;
 using EventPlanningAssistent.Data.IRepositories.Commons;
 using EventPlanningAssistent.Data.Repositories.Commons;
+using EventPlanningAssistent.Domain.Entities.Attendees;
+using EventPlanningAssistent.Domain.Entities.Events;
+using EventPlanningAssistent.Domain.Entities.Tasks;
 using EventPlanningAssistent.Service.DTOs.Attendees;
+using EventPlanningAssistent.Service.DTOs.Tasks;
 using EventPlanningAssistent.Service.Helpers;
 using EventPlanningAssistent.Service.IServices;
 using EventPlanningAssistent.Service.Mappers;
@@ -22,28 +26,118 @@ public class AttendeeService : IAttendeeService
             cfg => cfg.AddProfile<MappingProfile>()));
     }
 
-    public Task<Responce<AttendeeResultDTO>> CreateAsync(AttendeeCreationDTO dto)
+    public async Task<Responce<AttendeeResultDTO>> CreateAsync(AttendeeCreationDTO dto)
     {
-        throw new NotImplementedException();
+        TaskEntity existTask = await unitOfWork.tasks.GetByIdAsync(dto.TaskId);
+
+        if (existTask is null)
+            return new Responce<AttendeeResultDTO>
+            {
+                StatusCode = 404,
+                Message = "This TaskId was not found",
+            };
+
+        AttendeeEntity entity = mapper.Map<AttendeeEntity>(dto);
+
+        await unitOfWork.attendees.CreateAsync(entity);
+        await unitOfWork.SaveAsync();
+
+        AttendeeResultDTO AttendeeResult = mapper.Map<AttendeeResultDTO>(dto);
+
+        return new Responce<AttendeeResultDTO>
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Result = AttendeeResult
+        };
     }
 
-    public Task<Responce<bool>> DeleteAsync(long id)
+    public async Task<Responce<bool>> DeleteAsync(long id)
     {
-        throw new NotImplementedException();
+        AttendeeEntity existAttendee = await unitOfWork.attendees.GetByIdAsync(id);
+
+        if (existAttendee is null)
+            return new Responce<bool>
+            {
+                StatusCode = 404,
+                Message = "This Attendee was not found",
+                Result = false
+            };
+
+        unitOfWork.attendees.Delete(existAttendee);
+        await unitOfWork.SaveAsync();
+
+        return new Responce<bool>
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Result = true
+        };
     }
 
-    public Task<Responce<IEnumerable<AttendeeResultDTO>>> GetAllAysnc()
+    public async Task<Responce<AttendeeResultDTO>> UpdateAsync(AttendeeUpdateDTO dto)
     {
-        throw new NotImplementedException();
+        AttendeeEntity existAttendee = await unitOfWork.attendees.GetByIdAsync(dto.Id);
+
+        if (existAttendee is null)
+            return new Responce<AttendeeResultDTO>
+            {
+                StatusCode = 404,
+                Message = "This Attendee was not found",
+            };
+
+        var AttendeeUpdate = mapper.Map(dto, existAttendee);
+
+        unitOfWork.attendees.Update(AttendeeUpdate);
+        await unitOfWork.SaveAsync();
+
+        var resultAttendee = mapper.Map<AttendeeResultDTO>(AttendeeUpdate);
+
+        return new Responce<AttendeeResultDTO>
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Result = resultAttendee
+        };
     }
 
-    public Task<Responce<AttendeeResultDTO>> GetByIdAsync(long id)
+    public async Task<Responce<IEnumerable<AttendeeResultDTO>>> GetAllAysnc()
     {
-        throw new NotImplementedException();
+        var Attendees = unitOfWork.attendees.GetAll();
+
+        var resultAttendees = new List<AttendeeResultDTO>();
+
+        foreach (AttendeeEntity entity in Attendees)
+        {
+            resultAttendees.Add(mapper.Map<AttendeeResultDTO>(entity));
+        }
+
+        return new Responce<IEnumerable<AttendeeResultDTO>>
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Result = resultAttendees
+        };
     }
 
-    public Task<Responce<AttendeeResultDTO>> UpdateAsync(AttendeeUpdateDTO dto)
+    public async Task<Responce<AttendeeResultDTO>> GetByIdAsync(long id)
     {
-        throw new NotImplementedException();
+        AttendeeEntity existAttendee = await unitOfWork.attendees.GetByIdAsync(id);
+
+        if (existAttendee is null)
+            return new Responce<AttendeeResultDTO>
+            {
+                StatusCode = 404,
+                Message = "This Attendee was not found",
+            };
+
+        var resultAttendee = mapper.Map<AttendeeResultDTO>(existAttendee);
+
+        return new Responce<AttendeeResultDTO>
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Result = resultAttendee
+        };
     }
 }
