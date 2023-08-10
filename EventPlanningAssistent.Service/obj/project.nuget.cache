@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "NVGWq5grS1sE5njcTNWqqYgHTPWZRUvpkaEpofofy1RBSaZdNh5mXnxmyyS+pVnFhiNmKZtwW0dGLedgkbDy9g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Muhammadqodir\\OneDrive\\Documents\\Proects\\EventPlanningAssistent\\EventPlanningAssistent.Service\\EventPlanningAssistent.Service.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Muhammadqodir\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Muhammadqodir\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

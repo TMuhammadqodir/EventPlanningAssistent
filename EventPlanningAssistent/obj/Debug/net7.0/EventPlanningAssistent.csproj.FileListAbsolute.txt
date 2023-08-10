@@ -1,0 +1,15 @@
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent\bin\Debug\net7.0\EventPlanningAssistent.exe
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent\bin\Debug\net7.0\EventPlanningAssistent.deps.json
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent\bin\Debug\net7.0\EventPlanningAssistent.runtimeconfig.json
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent\bin\Debug\net7.0\EventPlanningAssistent.dll
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent\bin\Debug\net7.0\EventPlanningAssistent.pdb
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent\obj\Debug\net7.0\EventPlanningAssistent.csproj.AssemblyReference.cache
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent\obj\Debug\net7.0\EventPlanningAssistent.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent\obj\Debug\net7.0\EventPlanningAssistent.AssemblyInfoInputs.cache
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent\obj\Debug\net7.0\EventPlanningAssistent.AssemblyInfo.cs
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent\obj\Debug\net7.0\EventPlanningAssistent.csproj.CoreCompileInputs.cache
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent\obj\Debug\net7.0\EventPlanningAssistent.dll
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent\obj\Debug\net7.0\refint\EventPlanningAssistent.dll
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent\obj\Debug\net7.0\EventPlanningAssistent.pdb
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent\obj\Debug\net7.0\EventPlanningAssistent.genruntimeconfig.cache
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent\obj\Debug\net7.0\ref\EventPlanningAssistent.dll
