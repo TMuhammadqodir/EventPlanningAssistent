@@ -5,5 +5,5 @@ namespace EventPlanningAssistent.Data.IRepositories;
 
 public interface IAttendeeRepository : IRepository<AttendeeEntity>
 {
-
+    Task<AttendeeEntity> GetByTelNumberAsync(string telNumber);
 }
