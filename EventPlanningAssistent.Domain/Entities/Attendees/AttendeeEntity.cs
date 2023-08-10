@@ -1,7 +1,6 @@
 ﻿using EventPlanningAssistent.Domain.Commons;
 using EventPlanningAssistent.Domain.Entities.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
-
 namespace EventPlanningAssistent.Domain.Entities.Attendees;
 
 [Table("Attendees")]
