@@ -1,0 +1,12 @@
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent.Domain\bin\Debug\net7.0\EventPlanningAssistent.Domain.deps.json
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent.Domain\bin\Debug\net7.0\EventPlanningAssistent.Domain.dll
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent.Domain\bin\Debug\net7.0\EventPlanningAssistent.Domain.pdb
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent.Domain\obj\Debug\net7.0\EventPlanningAssistent.Domain.csproj.AssemblyReference.cache
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent.Domain\obj\Debug\net7.0\EventPlanningAssistent.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent.Domain\obj\Debug\net7.0\EventPlanningAssistent.Domain.AssemblyInfoInputs.cache
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent.Domain\obj\Debug\net7.0\EventPlanningAssistent.Domain.AssemblyInfo.cs
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent.Domain\obj\Debug\net7.0\EventPlanningAssistent.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent.Domain\obj\Debug\net7.0\EventPlanningAssistent.Domain.dll
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent.Domain\obj\Debug\net7.0\refint\EventPlanningAssistent.Domain.dll
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent.Domain\obj\Debug\net7.0\EventPlanningAssistent.Domain.pdb
+C:\Users\Muhammadqodir\OneDrive\Documents\Proects\EventPlanningAssistent\EventPlanningAssistent.Domain\obj\Debug\net7.0\ref\EventPlanningAssistent.Domain.dll
