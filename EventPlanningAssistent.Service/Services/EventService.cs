@@ -93,18 +93,18 @@ public class EventService : IEventService
     {
         var events = unitOfWork.events.GetAll();
 
-        var resultevents = new List<EventResultDTO>();
+        var resultEvents = new List<EventResultDTO>();
 
         foreach(EventEntity entity in events)
         {
-            resultevents.Add(mapper.Map<EventResultDTO>(entity));
+            resultEvents.Add(mapper.Map<EventResultDTO>(entity));
         }
 
         return new Responce<IEnumerable<EventResultDTO>>
         {
             StatusCode = 200,
             Message = "Success",
-            Result = resultevents
+            Result = resultEvents
         };
     }
 
