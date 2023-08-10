@@ -1,10 +1,11 @@
-﻿using EventPlanningAssistent.Domain.Entities.Tasks;
+﻿using EventPlanningAssistent.Domain.Commons;
+using EventPlanningAssistent.Domain.Entities.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EventPlanningAssistent.Domain.Entities.Events;
 
 [Table("Events")]
-public class EventEntity
+public class EventEntity : Auditable
 {
     public string Name { get; set; }
     public DateTime Date { get; set; }

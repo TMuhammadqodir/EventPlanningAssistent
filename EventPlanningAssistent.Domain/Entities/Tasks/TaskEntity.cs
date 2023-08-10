@@ -1,5 +1,5 @@
 ﻿namespace EventPlanningAssistent.Domain.Entities.Tasks;
 
-public class TaskEntity
+public class TaskEntity 
 {
 }
