@@ -20,7 +20,7 @@ public class AppDbContext : DbContext
 
     public DbSet<AttendeeEntity> Attendees { get; set; }
     public DbSet<ContractEntity> Contracts { get; set; }
-    public DbSet<EventEntity> Entits { get; set; }
+    public DbSet<EventEntity> Events { get; set; }
     public DbSet<EventVentorEntity> EventVentors { get; set; }
     public DbSet<TaskEntity> Tasks { get; set; }
     public DbSet<VentorEntity> Ventors { get; set; }

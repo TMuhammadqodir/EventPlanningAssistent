@@ -4,7 +4,9 @@ using EventPlanningAssistent.Data.Repositories.Commons;
 using EventPlanningAssistent.Domain.Entities.Events;
 using EventPlanningAssistent.Domain.Entities.EventVentors;
 using EventPlanningAssistent.Domain.Entities.Ventors;
+using EventPlanningAssistent.Service.DTOs.Events;
 using EventPlanningAssistent.Service.DTOs.EventVentors;
+using EventPlanningAssistent.Service.DTOs.Ventors;
 using EventPlanningAssistent.Service.Helpers;
 using EventPlanningAssistent.Service.IServices;
 using EventPlanningAssistent.Service.Mappers;
@@ -146,6 +148,66 @@ public class EventVentorService : IEventVentorServise
             StatusCode = 200,
             Message = "Success",
             Result = resultEventVentor
+        };
+    }
+
+    public async Task<Responce<IEnumerable<EventResultDTO>>> GetAllEventOfVentorAsync(long ventorId)
+    {
+        var eventVentors = unitOfWork.eventVentors.GetAllByVentorId(ventorId);
+
+        if (eventVentors is null)
+            return new Responce<IEnumerable<EventResultDTO>> 
+            {
+                StatusCode= 200,
+                Message = "Success", 
+            };
+
+        var eventResults = new List<EventResultDTO>();
+
+        foreach(var item in eventVentors)
+        {
+            var temp = await unitOfWork.events.GetByIdAsync(item.EventId);
+
+            var eventResult = mapper.Map<EventResultDTO>(temp);
+
+            eventResults.Add(eventResult);
+        }
+
+        return new Responce<IEnumerable<EventResultDTO>>
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Result = eventResults
+        };
+    }
+
+    public async Task<Responce<IEnumerable<VentorResultDTO>>> GetAllVentorOfEventAsync(long eventId)
+    {
+        var eventVentors = unitOfWork.eventVentors.GetAllByEventId(eventId);
+
+        if (eventVentors is null)
+            return new Responce<IEnumerable<VentorResultDTO>>
+            {
+                StatusCode = 200,
+                Message = "Success",
+            };
+
+        var ventorResults = new List<VentorResultDTO>();
+
+        foreach (var item in eventVentors)
+        {
+            var temp = await unitOfWork.ventors.GetByIdAsync(item.EventId);
+
+            var ventorResult = mapper.Map<VentorResultDTO>(temp);
+
+            ventorResults.Add(ventorResult);
+        }
+
+        return new Responce<IEnumerable<VentorResultDTO>>
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Result = ventorResults
         };
     }
 }

@@ -3,6 +3,7 @@ using EventPlanningAssistent.Data.IRepositories.Commons;
 using EventPlanningAssistent.Data.Repositories.Commons;
 using EventPlanningAssistent.Domain.Entities.Events;
 using EventPlanningAssistent.Service.DTOs.Events;
+using EventPlanningAssistent.Service.DTOs.Tasks;
 using EventPlanningAssistent.Service.Helpers;
 using EventPlanningAssistent.Service.IServices;
 using EventPlanningAssistent.Service.Mappers;
@@ -126,6 +127,25 @@ public class EventService : IEventService
             StatusCode = 200,
             Message = "Success",
             Result = resultEvent
+        };
+    }
+
+    public Task<Responce<IEnumerable<TaskResultDTO>>> GetAllTaskOfEventAsync(long id)
+    {
+        var tasks = unitOfWork.events.GetAllTasksOfEvent(id);
+
+        var resultTasks = new List<TaskResultDTO>();
+
+        foreach (var task in tasks)
+        {
+            resultTasks.Add(mapper.Map<TaskResultDTO>(task));
+        }
+
+        return new Responce<TaskResultDTO>
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Result = resultTasks
         };
     }
 }

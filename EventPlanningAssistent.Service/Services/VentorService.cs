@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
 using EventPlanningAssistent.Data.IRepositories.Commons;
 using EventPlanningAssistent.Data.Repositories.Commons;
+using EventPlanningAssistent.Domain.Entities.Attendees;
 using EventPlanningAssistent.Domain.Entities.Ventors;
+using EventPlanningAssistent.Service.DTOs.Attendees;
+using EventPlanningAssistent.Service.DTOs.Contracts;
 using EventPlanningAssistent.Service.DTOs.Ventors;
 using EventPlanningAssistent.Service.Helpers;
 using EventPlanningAssistent.Service.IServices;
@@ -135,6 +138,65 @@ public class VentorService : IVentorService
             StatusCode = 200,
             Message = "Success",
             Result = resultVentor
+        };
+    }
+
+    public async Task<Responce<VentorResultDTO>> GetByTelNumberAsync(string telNumber)
+    {
+        VentorEntity existVentor = await unitOfWork.ventors.GetByTelNumberAsync(telNumber);
+
+        if (existVentor is null)
+            return new Responce<VentorResultDTO>
+            {
+                StatusCode = 404,
+                Message = "This Ventor was not found",
+            };
+
+        var resultVentor = mapper.Map<VentorResultDTO>(existVentor);
+
+        return new Responce<VentorResultDTO>
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Result = resultVentor
+        };
+    }
+
+    public async Task<Responce<IEnumerable<VentorResultDTO>>> SearchByNameAsync(string name)
+    {
+        var ventors = unitOfWork.ventors.SeachByName(name);
+
+        var resultVentors = new List<VentorResultDTO>();
+
+        foreach (var item in ventors)
+        {
+            resultVentors.Add(mapper.Map<VentorResultDTO>(item));
+        }
+
+        return new Responce<IEnumerable<VentorResultDTO>>
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Result = resultVentors
+        };
+    }
+
+    public async Task<Responce<IEnumerable<ContractResultDTO>>> GetAllContractOfVentorAsync(long id)
+    {
+        var contracts = unitOfWork.ventors.GetAllContractOfVentor(id);
+
+        var resultContracts = new List<ContractResultDTO>();
+
+        foreach(var contract in contracts)
+        {
+            resultContracts.Add(mapper.Map<ContractResultDTO>(contract));
+        }
+
+        return new Responce<IEnumerable<ContractResultDTO>>
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Result = resultContracts
         };
     }
 }

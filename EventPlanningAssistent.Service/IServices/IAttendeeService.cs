@@ -10,4 +10,6 @@ public interface IAttendeeService
     Task<Responce<bool>> DeleteAsync(long id);
     Task<Responce<AttendeeResultDTO>> GetByIdAsync(long id);
     Task<Responce<IEnumerable<AttendeeResultDTO>>> GetAllAysnc();
+    Task<Responce<AttendeeResultDTO>> GetByTelNumberAsync(string telNumber);
+    Task<Responce<IEnumerable<AttendeeResultDTO>>> SearchByNameAsync(string name);
 }

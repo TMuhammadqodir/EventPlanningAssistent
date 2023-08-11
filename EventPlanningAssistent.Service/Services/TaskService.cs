@@ -3,6 +3,7 @@ using EventPlanningAssistent.Data.IRepositories.Commons;
 using EventPlanningAssistent.Data.Repositories.Commons;
 using EventPlanningAssistent.Domain.Entities.Events;
 using EventPlanningAssistent.Domain.Entities.Tasks;
+using EventPlanningAssistent.Service.DTOs.Attendees;
 using EventPlanningAssistent.Service.DTOs.Tasks;
 using EventPlanningAssistent.Service.Helpers;
 using EventPlanningAssistent.Service.IServices;
@@ -137,6 +138,31 @@ public class TaskService : ITaskService
             StatusCode = 200,
             Message = "Success",
             Result = resultTask
+        };
+    }
+
+    public async Task<Responce<IEnumerable<AttendeeResultDTO>>> GetAllAttendeeOfTaskAsync(long id)
+    {
+        var attendees = unitOfWork.tasks.GetAllAttendeeOfTask(id);
+
+        if (attendees is null)
+            return new Responce<IEnumerable<AttendeeResultDTO>>
+            {
+                StatusCode = 404,
+                Message = "This task not found",
+            };
+
+        var attendessResults = new List<AttendeeResultDTO>();
+
+        foreach (var result in attendees)
+        {
+            attendessResults.Add(mapper.Map<AttendeeResultDTO>(result));
+        }
+
+        return new Responce<IEnumerable<AttendeeResultDTO>> { 
+            StatusCode = 200,
+            Message = "Success",
+            Result = attendessResults
         };
     }
 }

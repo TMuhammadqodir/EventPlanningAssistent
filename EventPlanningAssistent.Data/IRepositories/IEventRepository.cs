@@ -5,4 +5,5 @@ namespace EventPlanningAssistent.Data.IRepositories;
 
 public interface IEventRepository : IRepository<EventEntity>
 {
+    IQueryable<EventEntity> GetAllTasksOfEvent(long id);
 }

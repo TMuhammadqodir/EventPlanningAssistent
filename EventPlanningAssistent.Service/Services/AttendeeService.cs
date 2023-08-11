@@ -37,7 +37,7 @@ public class AttendeeService : IAttendeeService
 
         AttendeeEntity existAttendee = await unitOfWork.attendees.GetByTelNumberAsync(dto.TelNumber);
 
-        if (existAttendee is null)
+        if (existAttendee is not null)
             return new Responce<AttendeeResultDTO>
             {
                 StatusCode = 403,
@@ -145,6 +145,46 @@ public class AttendeeService : IAttendeeService
             StatusCode = 200,
             Message = "Success",
             Result = resultAttendee
+        };
+    }
+
+    public async Task<Responce<AttendeeResultDTO>> GetByTelNumberAsync(string telNumber)
+    {
+        AttendeeEntity existAttendee = await unitOfWork.attendees.GetByTelNumberAsync(telNumber);
+
+        if (existAttendee is null)
+            return new Responce<AttendeeResultDTO>
+            {
+                StatusCode = 404,
+                Message = "This Attendee was not found",
+            };
+
+        var resultAttendee = mapper.Map<AttendeeResultDTO>(existAttendee);
+
+        return new Responce<AttendeeResultDTO>
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Result = resultAttendee
+        };
+    }
+
+    public async Task<Responce<IEnumerable<AttendeeResultDTO>>> SearchByNameAsync(string name)
+    {
+        var attendees = unitOfWork.attendees.SearchByName(name);
+
+        var resultAttendees = new List<AttendeeResultDTO>();
+
+        foreach ( var item in attendees)
+        {
+            resultAttendees.Add(mapper.Map<AttendeeResultDTO>(item));
+        }
+
+        return new Responce<IEnumerable<AttendeeResultDTO>>
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Result = resultAttendees
         };
     }
 }
