@@ -31,6 +31,6 @@ public class UnitOfWork : IUnitOfWork
         GC.SuppressFinalize(true);
     }
 
-    public Task<int> SaveAsync()
-        => appDbContext.SaveChangesAsync();
+    public async Task<int> SaveAsync()
+        => await appDbContext.SaveChangesAsync();
 }

@@ -16,4 +16,7 @@ public class AttendeeRepository : Repository<AttendeeEntity>, IAttendeeRepositor
 
     public async Task<AttendeeEntity> GetByTelNumberAsync(string telNumber)
         => await appDbContext.Attendees.FirstOrDefaultAsync(a => a.TelNumber.Equals(telNumber));
+
+    public IQueryable<AttendeeEntity> SearchByName(string name)
+        => appDbContext.Attendees.Where(a=> a.FirstName.ToLower().Contains(name.ToLower()));
 }

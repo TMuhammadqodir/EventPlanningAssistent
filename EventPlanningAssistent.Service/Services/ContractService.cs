@@ -40,7 +40,7 @@ public class ContractService : IContractService
         await unitOfWork.contracts.CreateAsync(entity);
         await unitOfWork.SaveAsync();
 
-        ContractResultDTO ContractResult = mapper.Map<ContractResultDTO>(dto);
+        ContractResultDTO ContractResult = mapper.Map<ContractResultDTO>(entity);
 
         return new Responce<ContractResultDTO>
         {

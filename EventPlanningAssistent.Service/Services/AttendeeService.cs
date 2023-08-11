@@ -49,7 +49,7 @@ public class AttendeeService : IAttendeeService
         await unitOfWork.attendees.CreateAsync(entity);
         await unitOfWork.SaveAsync();
 
-        AttendeeResultDTO AttendeeResult = mapper.Map<AttendeeResultDTO>(dto);
+        AttendeeResultDTO AttendeeResult = mapper.Map<AttendeeResultDTO>(entity);
 
         return new Responce<AttendeeResultDTO>
         {

@@ -41,7 +41,7 @@ public class TaskService : ITaskService
         await unitOfWork.tasks.CreateAsync(entity);
         await unitOfWork.SaveAsync();
 
-        TaskResultDTO TaskResult = mapper.Map<TaskResultDTO>(dto);
+        TaskResultDTO TaskResult = mapper.Map<TaskResultDTO>(entity);
 
         return new Responce<TaskResultDTO>
         {

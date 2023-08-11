@@ -29,9 +29,11 @@ public class EventService : IEventService
         EventEntity entity = mapper.Map<EventEntity>(dto);
 
         await unitOfWork.events.CreateAsync(entity);
-        await unitOfWork.SaveAsync();
+        var temp = await unitOfWork.SaveAsync();
 
-        EventResultDTO eventResult = mapper.Map<EventResultDTO>(dto);
+        Console.WriteLine(temp);
+
+        EventResultDTO eventResult = mapper.Map<EventResultDTO>(entity);
 
         return new Responce<EventResultDTO>
         {
@@ -130,7 +132,7 @@ public class EventService : IEventService
         };
     }
 
-    public Task<Responce<IEnumerable<TaskResultDTO>>> GetAllTaskOfEventAsync(long id)
+    public async Task<Responce<IEnumerable<TaskResultDTO>>> GetAllTaskOfEventAsync(long id)
     {
         var tasks = unitOfWork.events.GetAllTasksOfEvent(id);
 
@@ -141,7 +143,7 @@ public class EventService : IEventService
             resultTasks.Add(mapper.Map<TaskResultDTO>(task));
         }
 
-        return new Responce<TaskResultDTO>
+        return new Responce<IEnumerable<TaskResultDTO>>
         {
             StatusCode = 200,
             Message = "Success",

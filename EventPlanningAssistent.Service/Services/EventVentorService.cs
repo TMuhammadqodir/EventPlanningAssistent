@@ -52,7 +52,7 @@ public class EventVentorService : IEventVentorServise
         await unitOfWork.eventVentors.CreateAsync(entity);
         await unitOfWork.SaveAsync();
 
-        EventVentorResultDTO EventVentorResult = mapper.Map<EventVentorResultDTO>(dto);
+        EventVentorResultDTO EventVentorResult = mapper.Map<EventVentorResultDTO>(entity);
 
         return new Responce<EventVentorResultDTO>
         {
