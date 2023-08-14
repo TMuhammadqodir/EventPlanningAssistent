@@ -153,7 +153,7 @@ public class EventVentorService : IEventVentorServise
 
     public async Task<Responce<IEnumerable<EventResultDTO>>> GetAllEventOfVentorAsync(long ventorId)
     {
-        var eventVentors = unitOfWork.eventVentors.GetAllByVentorId(ventorId);
+        var eventVentors = unitOfWork.eventVentors.GetAllByVentorId(ventorId).ToArray();
 
         if (eventVentors is null)
             return new Responce<IEnumerable<EventResultDTO>> 
